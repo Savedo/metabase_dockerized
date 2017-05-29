@@ -1,0 +1,19 @@
+error_log   /dev/stdout error;
+access_log  /dev/stdout;
+
+upstream metabase-service {
+  least_conn;
+  {{range service "production-utilities-revive"}}server {{.address}}:{{.port}} max_fails=3 fail_timeout=60 weight=1;
+  {{else}}server 127.0.0.1:65535; # force a 502{{end}}
+}
+
+server {
+  listen      80;
+  server_name localhost;
+
+  location / {
+    if ($http_x_forwarded_proto != 'https') {
+      return 301 https://$host$request_uri;
+    }
+  }
+}
