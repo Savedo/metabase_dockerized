@@ -9,5 +9,3 @@ services:
       - APP_DIR=/srv
     ports:
       - 3000:3000
-    links:
-      - nginx
