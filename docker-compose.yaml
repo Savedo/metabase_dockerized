@@ -9,11 +9,3 @@ services:
       - APP_DIR=/srv
     ports:
       - 3000:3000
-    links:
-      - nginx
-  nginx:
-    build:
-      context: .
-      dockerfile: Dockerfile_nginx
-    ports:
-      - 80:80

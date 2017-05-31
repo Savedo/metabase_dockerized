@@ -7,10 +7,6 @@ ENV METABASE_VERSION=${METABASE_VERSION}
 ENV APP_DIR="/srv"
 ENV METABASE_PORT="3000"
 
-#RUN apt-get update && \
-#    apt-get install -y \
-#    cron
-
 RUN mkdir -p ${APP_DIR}
 
 WORKDIR ${APP_DIR}
