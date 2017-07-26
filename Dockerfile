@@ -1,6 +1,6 @@
-FROM openjdk:8-jre
+FROM openjdk:7-jre-slim
 
-MAINTAINER IT Savedo <it@savedo.de>
+MAINTAINER Savedo Tech <tech@savedo.de>
 
 ARG METABASE_VERSION=v0.25.0
 ENV METABASE_VERSION=${METABASE_VERSION}
@@ -11,6 +11,9 @@ RUN mkdir -p ${APP_DIR}
 
 WORKDIR ${APP_DIR}
 
+RUN apt-get update && \
+    apt-get install -y \
+    curl
 RUN curl -SL http://downloads.metabase.com/${METABASE_VERSION}/metabase.jar -o metabase.jar
 
 EXPOSE ${METABASE_PORT}
