@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-slim
+FROM openjdk:7-jre-slim
 
 MAINTAINER Savedo Tech <tech@savedo.de>
 
