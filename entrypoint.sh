@@ -2,4 +2,4 @@
 
 APP_DIR="${APP_DIR}"
 
-java -jar ${APP_DIR}/metabase.jar
+java -Dlog4j.configuration=file:/log4j.properties -jar ${APP_DIR}/metabase.jar

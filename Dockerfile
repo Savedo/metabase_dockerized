@@ -19,5 +19,6 @@ RUN curl -SL http://downloads.metabase.com/${METABASE_VERSION}/metabase.jar -o m
 EXPOSE ${METABASE_PORT}
 
 COPY entrypoint.sh /entrypoint.sh
+COPY log4j.properties /log4j.properties
 
 ENTRYPOINT ["bash", "/entrypoint.sh"]
